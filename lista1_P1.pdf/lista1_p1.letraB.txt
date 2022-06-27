@@ -1,0 +1,22 @@
+package com.company;
+import java.util.Scanner;
+class Main {
+    public static void main(String args[]) {
+        Scanner input = new Scanner (System. in);
+        double avaregeConsumption;
+        double time;
+        double liters;
+        double avarageSpeed;
+        double distance;
+        System.out.println("informe o valor do consumo médio");
+        avaregeConsumption = input.nextDouble();
+        System.out.println("informe o valor do tempo");
+        time = input.nextDouble();
+        System.out.println("informe o valor da velocidade média");
+        avarageSpeed = input.nextDouble();
+        distance = time * avarageSpeed;
+        System.out.println (distance);
+        liters = distance / avaregeConsumption;
+        System.out.println (liters);
+    }
+}

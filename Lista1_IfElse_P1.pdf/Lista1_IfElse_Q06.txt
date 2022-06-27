@@ -1,0 +1,35 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        double wage;
+        double hoursWorked;
+        double minimumWage;
+        double finalMinimumWage;
+        double finalWage;
+        double incomeTax;
+
+        System.out.println("Report the number of hours worked");
+        System.out.print("Hours worked: ");
+        hoursWorked = input.nextDouble();
+        System.out.println("Report the value of the minimum wage");
+        System.out.print("Minimum wage: ");
+        minimumWage = input.nextDouble();
+
+        finalMinimumWage = minimumWage * 0.015;
+        wage = hoursWorked * finalMinimumWage;
+
+        if(wage>2500.0){
+            incomeTax = wage * 0.075;
+            finalWage = wage - incomeTax;
+
+            System.out.println("The wage is R$" + wage);
+            System.out.println("The income tax is R$" + incomeTax);
+            System.out.println("The final wage is R$" + finalWage);
+        }else{
+            System.out.println("The final wage is R$" + wage);
+        }
+    }
+}

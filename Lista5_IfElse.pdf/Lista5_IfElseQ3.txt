@@ -1,0 +1,35 @@
+ppackage com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+
+        double segment1;
+        double segment2;
+        double segment3;
+
+        System.out.println("Please report the value of segment 1");
+        System.out.print("Segment 1: ");
+        segment1 = input.nextDouble();
+        System.out.println("Please report the value of segment 2");
+        System.out.print("Segment 2: ");
+        segment2 = input.nextDouble();
+        System.out.println("Please report the value of segment 3");
+        System.out.print("Segment 3: ");
+        segment3 = input.nextDouble();
+
+        if (segment1 < segment2 + segment3 && segment2 < segment1 + segment3 && segment3 < segment1 + segment2) {
+            System.out.println("It is able to form a triangle");
+            if (segment1 == segment2 && segment1 == segment3 && segment2 == segment3) {
+                System.out.println("The triangle is equilateral");
+            } else if (segment1 == segment2 || segment1 == segment3 || segment2 == segment3) {
+                System.out.println("The triangle is isosceles");
+            } else if (segment1 != segment2 || segment1 != segment3 || segment2 != segment3) {
+                System.out.println("The triangle is scalene");
+            }
+         }else {
+                System.out.println("It is not able to form a triangle");
+
+        }
+    }
+}

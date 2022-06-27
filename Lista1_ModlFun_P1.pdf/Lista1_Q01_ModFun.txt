@@ -1,0 +1,123 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class conversao {
+
+    public static void menu() {
+        System.out.println("Escolha uma opção: ");
+        System.out.println("1 - para converter o valor para quilômetros");
+        System.out.println("2 - para converter o valor para hectômetros");
+        System.out.println("3 - para converter o valor para decâmetros");
+        System.out.println("4 - para converter o valor para decímetros");
+        System.out.println("5 - para converter o valor para centímetros");
+        System.out.println("6 - para onverter o valor para milímetros");
+        System.out.println("0 - para encerrar o programa");
+        System.out.println("Opção: ");
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int opção;
+        char resposta = 0;
+        double metros;
+
+        do {
+            menu();
+            opção = input.nextInt();
+            switch (opção) {
+                case 1:
+                    System.out.println("Por favor informe um valor em metros: ");
+                    metros = input.nextDouble();
+                    System.out.println("O valor " + metros + "m é em quilômetros igual a " + funKm(metros) + "km");
+                    break;
+
+                case 2:
+                    System.out.println("Por favor informe um valor em metros: ");
+                    metros = input.nextDouble();
+                    System.out.println("O valor " + metros + "m é em hectômetros igual a " + funHm(metros) + "hm");
+                    break;
+
+                case 3:
+                    System.out.println("Por favor informe um valor em metros: ");
+                    metros = input.nextDouble();
+                    System.out.println("O valor " + metros + "m é em decâmetros igual a " + funDam(metros) + "dam");
+                    break;
+
+                case 4:
+                    System.out.println("Por favor informe um valor em metros: ");
+                    metros = input.nextDouble();
+                    System.out.println("O valor " + metros + "m é em decímetros igual a " + funDm(metros) + "dm");
+                    break;
+
+                case 5:
+                    System.out.println("Por favor informe um valor em metros: ");
+                    metros = input.nextDouble();
+                    System.out.println("O valor " + metros + "m é em centímetros igual a " + funCm(metros) + "cm");
+                    break;
+
+                case 6:
+                    System.out.println("Por favor informe um valor em metros: ");
+                    metros = input.nextDouble();
+                    System.out.println("O valor " + metros + "m é em milímetros igual a " + funMm(metros) + "mm");
+                    break;
+
+                case 0:
+                    System.out.println("FIM do programa!");
+                    break;
+
+                default:
+                    System.out.println("OPÇÃO INVÁLIDA");
+            }
+            while (opção != 0) {
+                System.out.println("Você deseja realizar outra conversão? (s para sim e n para não)");
+                resposta = input.next().charAt(0);
+                resposta = Character.toLowerCase(resposta);
+                while (resposta != 's' && resposta != 'n') {
+                    System.out.println("ERRO!");
+                    System.out.println("Você deseja realizar outra conversão? (s para sim e n para não)");
+                    resposta = input.next().charAt(0);
+                    resposta = Character.toLowerCase(resposta);
+                }
+            }
+
+        } while (resposta == 's' && opção != 0);
+    }
+
+    public static double funKm(double metros) {
+        double result;
+        result = metros / 1000.0;
+        return result;
+    }
+
+    public static double funHm(double metros) {
+        double result;
+        result = metros / 100.0;
+        return result;
+    }
+
+    public static double funDam(double metros) {
+        double result;
+        result = metros / 10.0;
+        return result;
+    }
+
+    public static double funDm(double metros) {
+        double result;
+        result = metros * 10.0;
+        return result;
+    }
+
+    public static double funCm(double metros) {
+        double result;
+        result = metros * 100.0;
+        return result;
+    }
+
+    public static double funMm(double metros) {
+        double result;
+        result = metros * 1000.0;
+        return result;
+    }
+}

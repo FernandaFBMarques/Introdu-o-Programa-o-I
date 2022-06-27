@@ -1,0 +1,59 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class conversao {
+
+    public static void classificação(int num1, int num2, int num3) {
+        int menorNum = 0;
+        int maiorNum = 0;
+        if (num1 > num2 && num1 > num3) {
+            maiorNum = num1;
+        } else if (num2 > num1 && num2 > num3) {
+            maiorNum = num2;
+        } else if (num3 > num2 && num3 > num1) {
+            maiorNum = num3;
+        }
+        if (num1 < num2 && num1 < num3) {
+            menorNum = num1;
+        } else if (num2 < num1 && num2 < num3) {
+            menorNum = num2;
+        } else if (num3 < num2 && num3 < num1) {
+            menorNum = num3;
+        }
+        System.out.println("O menor número é " + menorNum + " o maior número é " + maiorNum);
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int num1;
+        int num2;
+        int num3;
+        char resposta;
+
+        do {
+            System.out.println("Por favor informe 3 números inteiros: ");
+            System.out.println("Número 1: ");
+            num1 = input.nextInt();
+            System.out.println("Número 2: ");
+            num2 = input.nextInt();
+            System.out.println("Número 3: ");
+            num3 = input.nextInt();
+            classificação(num1, num2, num3);
+
+            System.out.println("Você deseja calcular outros números?");
+            System.out.println("s para sim");
+            System.out.println("n para não");
+            resposta = input.next().charAt(0);
+            resposta = Character.toLowerCase(resposta);
+            while (resposta != 's' && resposta != 'n') {
+                System.out.println("ERRO! Você deseja calcular outros números?");
+                System.out.println("s para sim");
+                System.out.println("n para não");
+                resposta = input.next().charAt(0);
+                resposta = Character.toLowerCase(resposta);
+            }
+        } while (resposta == 's');
+    }
+}

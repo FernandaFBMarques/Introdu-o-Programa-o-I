@@ -1,0 +1,25 @@
+package com.company;
+import java.util.Scanner;
+class Main {
+    public static void main(String args[]) {
+        Scanner input = new Scanner (System. in);
+        double finalValue;
+        double days;
+        double fees;
+        double fine;
+        double totalValue;
+        System.out.println("informe o valor de fatura");
+        finalValue = input.nextDouble();
+        System.out.println("informe o valor de dias");
+        days = input.nextDouble();
+        System.out.println("informe o valor dos juros");
+        fees = input.nextDouble();
+        days = fees * finalValue / 100 * days;
+        fine = finalValue * 20/100 * days;
+        System.out.println ("o valor da multa por"+ days + "dias de atraso é R$"+ fine);
+        System.out.println ("o valor dos juros a ser pago por" + days + "dias de atraso é R$" + fees );
+        totalValue = finalValue + fine + fees;
+        System.out.println("O valor total da conta a ser pago já com multa e juros é R$"+ totalValue);
+
+    }
+}

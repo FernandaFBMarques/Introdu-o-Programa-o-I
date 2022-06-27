@@ -1,0 +1,28 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main (String args[]){
+        Scanner input = new Scanner (System.in);
+        double side1;
+        double side2;
+        double side3;
+        double t;
+        double area;
+
+        System.out.println("Informe o valor do lado 1 do triângulo");
+        System.out.print("Lado 1: ");
+        side1 = input.nextDouble();
+        System.out.println("Informe o valor do lado 2 do triângulo");
+        System.out.print("Lado 2: ");
+        side2 = input.nextDouble();
+        System.out.println("Informe o valor do lado 3 do triângulo");
+        System.out.print("Lado 3: ");
+        side3 = input.nextDouble();
+
+        t = (side1 + side2 + side3)/2.0;
+        area = Math.sqrt(t * (t - side1) * (t - side2) * (t - side3));
+
+        System.out.println("O valor da area do triângulo é igual a " + area);
+
+    }
+}

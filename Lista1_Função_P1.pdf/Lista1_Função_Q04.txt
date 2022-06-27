@@ -1,0 +1,101 @@
+package com.company;
+import java.util.Scanner;
+public class conversao {
+    public static double cubo(double a){
+        double result;
+        result = Math.pow(a,3);
+        return result;
+    }public static double paralelepipedo(double a, double b, double c){
+        double result;
+        result = a * b * c;
+        return result;
+    }public static double esfera(double a){
+        double result;
+        result = (4/3) * 3.14 * Math.pow(a,3);
+        return result;
+    }public static double cilindro(double a, double b){
+        double result;
+        result = Math.pow(a,2) * b * 3.14;
+        return result;
+    }
+    public static void main (String [] args){
+        double lado;
+        double altura;
+        double largura;
+        double comprimento;
+        double raio;
+        double raioBase;
+        double volumeCubo;
+        double volumeParalelepipedo;
+        double volumeEsfera;
+        double volumeCilindro;
+        int solidoGeometrico;
+        char resposta;
+
+        Scanner input = new Scanner(System.in);
+
+        do{
+            System.out.println("Selecione -> Cubo = 1; Paralelepipedo = 2; Esfera = 3; Cilindro = 4");
+            System.out.println("Qual sólido geometrico você deseja calcular o volume?");
+            System.out.print("Sólido geometrico: ");
+            solidoGeometrico = input.nextInt();
+
+            while(solidoGeometrico != 1 && solidoGeometrico != 2 && solidoGeometrico != 3 && solidoGeometrico != 4) {
+                System.out.println("ERRO! Selecione -> Cubo = 1; Paralelepipedo = 2; Esfera = 3; Cilindro = 4");
+                System.out.println("Qual sólido geometrico você deseja calcular o volume?");
+                System.out.print("Sólido geometrico: ");
+                solidoGeometrico = input.nextInt();
+            }
+            switch(solidoGeometrico){
+                case 1:
+                    System.out.println("Por favor informe o lado do cubo");
+                    System.out.print("Lado: ");
+                    lado = input.nextDouble();
+                    volumeCubo = cubo(lado);
+                    System.out.println("O volume do cubo é " + volumeCubo);
+                    break;
+                case 2:
+                    System.out.println("Por favor informe as medidas do paralelepipedo");
+                    System.out.print("Altura: ");
+                    altura = input.nextDouble();
+                    System.out.print("Largura: ");
+                    largura = input.nextDouble();
+                    System.out.print("Comprimento: ");
+                    comprimento = input.nextDouble();
+                    volumeParalelepipedo = paralelepipedo(altura, largura, comprimento);
+                    System.out.println("O volume do paralelepipedo é " + volumeParalelepipedo);
+                    break;
+                case 3:
+                    System.out.println("Por favor informe as medidas da esfera");
+                    System.out.print("Raio: ");
+                    raio = input.nextDouble();
+                    volumeEsfera = esfera(raio);
+                    System.out.println("O volume da esfera é " + volumeEsfera);
+                    break;
+                case 4:
+                    System.out.println("Por favor informe as medidas do cilindro");
+                    System.out.print("Altura: ");
+                    altura = input.nextDouble();
+                    System.out.print("Raio da base: ");
+                    raioBase = input.nextDouble();
+                    volumeCilindro = cilindro(raioBase, altura);
+                    System.out.println("O volume do cilindro é " + volumeCilindro);
+                    break;
+                default:
+
+            }
+            System.out.println("Você quer calcular outro sólido geométrico? (s para sim e n para não)");
+            System.out.print("Resposta: ");
+            resposta = input.next().charAt(0);
+            resposta = Character.toLowerCase(resposta);
+
+            while(resposta != 's' && resposta != 'n'){
+                System.out.println("ERRO! A resposta deve ser s para sim e n para não");
+                System.out.println("Você quer calcular outro sólido geométrico?");
+                System.out.print("Resposta: ");
+                resposta = input.next().charAt(0);
+                resposta = Character.toLowerCase(resposta);
+            }
+        }while(resposta == 's');
+    }
+}

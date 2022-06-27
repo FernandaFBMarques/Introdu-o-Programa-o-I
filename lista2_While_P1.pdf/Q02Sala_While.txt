@@ -1,0 +1,59 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+
+        int amountOfMeasure;
+        double sum = 0;
+        double temp;
+        double highestTemperature = Double.MAX_VALUE;
+        double lowestTemperature = Double.MIN_VALUE;
+
+        System.out.println("Please report how many times the temperature was measured today");
+        System.out.print("How many times: ");
+        amountOfMeasure = input.nextInt();
+
+        while (amountOfMeasure < 5) {
+            System.out.println("ERRO! The temperature must be measured at least 5 times a day!");
+            System.out.print("Please report again how many times the temperature was measured today: ");
+            amountOfMeasure = input.nextInt();
+        }
+        int count = 1;
+        int count2 = 1;
+        while (count <= amountOfMeasure) {
+            System.out.println("Please report the temperature " + count + " of the day");
+            System.out.print("Temperature: ");
+            temp = input.nextDouble();
+
+            while (temp < -40 || temp > 60) {
+                System.out.println("ERRO! The temperature must be between -40˙C and 60˙C");
+                System.out.print("Please report again the temperature: ");
+                temp = input.nextDouble();
+                sum = sum + temp;
+            }
+            if (temp > 30) {
+                count2 = count2 + 1;
+            }
+            if (highestTemperature == Double.MAX_VALUE) {
+                highestTemperature = temp;
+            } else if (temp > highestTemperature) {
+                highestTemperature = temp;
+            }
+            if (lowestTemperature == Double.MIN_VALUE) {
+                lowestTemperature = temp;
+            } else if (temp < lowestTemperature) {
+                lowestTemperature = temp;
+            }
+            count = count + 1;
+            sum = sum + temp;
+        }
+        double tempAverage = sum / count;
+        double percentage30 = count2 * (100.0 / count);
+
+        System.out.println("The highest temperature of the day is " + highestTemperature + "˙C");
+        System.out.println("The lowest temperature of the day is " + lowestTemperature + "˙C");
+        System.out.println("The temperatures average of the day is " + tempAverage + "˙C");
+        System.out.println("The percentage of temperatures above 30˙c is " + percentage30 + "%");
+    }
+}

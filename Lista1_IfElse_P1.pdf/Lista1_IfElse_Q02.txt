@@ -1,0 +1,25 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main (String args[]){
+        Scanner input = new Scanner(System.in);
+
+        double number;
+        double restNumber;
+
+        System.out.println ("Report a full number");
+        System.out.print("Number: ");
+        number = input.nextDouble();
+
+        restNumber = number % 2;
+
+        if(restNumber == 0){
+            System.out.println("The number " + number + " is even");
+        }
+        else{
+            System.out.println("The number " + number + " is odd");
+        }
+
+
+    }
+}

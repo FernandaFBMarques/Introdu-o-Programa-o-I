@@ -1,0 +1,41 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class conversao{
+
+    public static void maiorMenor(int num1, int num2, int num3){
+        if(num1 > num2 && num1 > num3){
+            System.out.println("O maior número é " + num1);
+        }else if(num2 > num1 && num2 > num3){
+            System.out.println("O maior número é " + num2);
+        }else if(num3 > num1 && num3 > num2){
+            System.out.println("O maior número é " + num3);
+        }
+        if(num1 < num2 && num1 < num3){
+            System.out.println("O menor número é " + num1);
+        }else if(num2 < num1 && num2 < num3){
+            System.out.println("O menor número é " + num2);
+        }else if(num3 < num1 && num3 < num2){
+            System.out.println("O menor número é " + num3);
+        }
+    }
+
+    public static void main(String [] args){
+        Scanner input = new Scanner(System.in);
+
+        int num1;
+        int num2;
+        int num3;
+        
+        System.out.println("Por favor informe três números inetiros: ");
+        System.out.println("Número 1: ");
+        num1 = input.nextInt();
+        System.out.println("Número 2: ");
+        num2 = input.nextInt();
+        System.out.println("Número 3: ");
+        num3 = input.nextInt();
+
+        maiorMenor(num1, num2, num3);
+    }
+}

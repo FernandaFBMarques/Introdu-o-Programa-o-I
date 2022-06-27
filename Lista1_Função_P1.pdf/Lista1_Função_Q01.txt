@@ -1,0 +1,66 @@
+package com.company;
+import java.util.Scanner;
+public class conversao {
+    public static double conversao1 (double a ,double b){
+        double result;
+        result = a / b;
+        return result;
+    }
+    public static double conversao2 (double a ,double b){
+        double result;
+        result = a * b;
+        return result;
+    }
+    public static void main (String[] args){
+        double real;
+        double dolar = 4.82;
+        double convert;
+        char answer;
+        Scanner input = new Scanner(System.in);
+        do{
+            System.out.println("Please report the value in real you would like to convert to dolar");
+            real = input.nextDouble();
+
+            convert = conversao1 (real, dolar);
+            System.out.println("The value in dolar is US$" + convert);
+
+            System.out.println("There is another value to convert? (y for yes and n for no)");
+            System.out.print("Answer: ");
+            answer = input.next().charAt(0);
+            answer = Character.toLowerCase(answer);
+
+            while(answer != 'y' && answer != 'n'){
+                System.out.println("ERRO! The answer must be y for yes and n for no");
+                System.out.println("There is another value to convert?");
+                System.out.print("Answer: ");
+                answer = input.next().charAt(0);
+                answer = Character.toLowerCase(answer);
+            }
+        }while(answer == 'y');
+
+        double valueDolar;
+        double valueReal;
+        char answer2;
+
+        do{
+            System.out.println("Please report the value in dolar you would like to convert to real");
+            valueDolar = input.nextDouble();
+
+            valueReal = conversao2 (valueDolar , dolar);
+            System.out.println("The value in real is R$" + valueReal);
+
+            System.out.println("There is another value to convert? (y for yes and n for no)");
+            System.out.print("Answer: ");
+            answer2 = input.next().charAt(0);
+            answer2 = Character.toLowerCase(answer2);
+
+            while(answer2 != 'y' && answer2 != 'n'){
+                System.out.println("ERRO! The answer must be y for yes and n for no");
+                System.out.println("There is another value to convert?");
+                System.out.print("Answer: ");
+                answer2 = input.next().charAt(0);
+                answer2 = Character.toLowerCase(answer2);
+            }
+        }while(answer2 == 'y');
+    }
+}

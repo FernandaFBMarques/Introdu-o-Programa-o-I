@@ -1,0 +1,27 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main (String args[]){
+        Scanner input = new Scanner (System.in);
+       
+        double alturaPredio;
+        double alturaPessoa;
+        double sombraPredio;
+        double sombraPessoa;
+
+        System.out.println("Informe a altura da pessoa");
+        System.out.print("Altura pessoa: ");
+        alturaPessoa = input.nextDouble();
+        System.out.println("Informe o comprimento da sombra da pessoa");
+        System.out.print("Sombra da pessoa: ");
+        sombraPessoa = input.nextDouble();
+        System.out.println("Informe o comprimento da sombra do prédio");
+        System.out.print("Sombra do prédio: ");
+        sombraPredio = input.nextDouble();
+
+        alturaPredio = (alturaPessoa * sombraPredio)/sombraPessoa;
+
+        System.out.println("O valor da altura do prédio é igual a " + alturaPredio + "metros");
+
+    }
+} 

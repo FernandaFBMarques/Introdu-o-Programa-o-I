@@ -1,0 +1,80 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        int voteMaria = 1;
+        int votePedro = 2;
+        int voteLuis = 3;
+        int votePaula = 4;
+        int voteFrancisco = 5;
+        int voteBranco = 6;
+        int vote;
+        int count = 0;
+        int count1 = 0;
+        int count2 = 0;
+        int count3 = 0;
+        int count4 = 0;
+        int count5 = 0;
+        int count6 = 0;
+        int count7 = 0;
+        char answer;
+
+        do{
+            System.out.println("Maria = 1; Pedro = 2; Luís = 3; Paula = 4; Francisco = 5; Branco = 6?");
+            System.out.println("What is your vote?");
+            System.out.print("Vote: ");
+            vote = input.nextInt();
+            switch(vote){
+                case 1:
+                    System.out.println("You voted Maria!");
+                    count1 = count1 + 1;
+                    break;
+                case 2:
+                    System.out.println("You voted Pedro!");
+                    count2 = count2 + 1;
+                    break;
+                case 3:
+                    System.out.println("You voted Luís!");
+                    count3 = count3 + 1;
+                    break;
+                case 4:
+                    System.out.println("You voted Paula!");
+                    count4 = count4 + 1;
+                    break;
+                case 5:
+                    System.out.println("You voted Francisco!");
+                    count5 = count5 + 1;
+                    break;
+                case 6:
+                    System.out.println("You voted Branco!");
+                    count6 = count6 + 1;
+                    break;
+                default:
+                    System.out.println("Your vote is INVALID!");
+                    count7 = count7 + 1;
+            }
+            count = count + 1;
+            System.out.println("There is another vote? (y for yes and n for no)");
+            answer = input.next().charAt(0);
+            answer = Character.toLowerCase(answer);
+            
+        }while(answer == 'y');
+
+        double percentageBranco = count6 * (100.0 / count);
+        double percentageNulo = count7 * (100.0 / count);
+        double totalValid = count1 + count2 + count3 + count4 + count5 + count6;
+        double percentageValid = totalValid * (100.0 / count);
+
+        System.out.println("The total of votes for Maria is " + count1);
+        System.out.println("The total of votes for Pedro is " + count2);
+        System.out.println("The total of votes for Luís is " + count3);
+        System.out.println("The total of votes for Paula is " + count4);
+        System.out.println("The total of votes for Francisco is " + count5);
+        System.out.println("The total of votes Branco is " + count6);
+        System.out.println("The total of votes Nulo is " + count7);
+        System.out.println("The percentage of votes Branco is " + percentageBranco);
+        System.out.println("The percentage of votes Nulo is " + percentageNulo);
+    }
+}

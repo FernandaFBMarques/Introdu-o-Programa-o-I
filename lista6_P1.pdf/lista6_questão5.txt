@@ -1,0 +1,42 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main (String args[]){
+        Scanner input = new Scanner (System.in);
+
+        double a;
+        double b;
+        double c;
+        double d;
+        double e;
+        double f;
+        double x;
+        double y;
+
+        System.out.println("Informe o valor de A");
+        System.out.print("A: ");
+        a = input.nextDouble();
+        System.out.println("Informe o valor de B");
+        System.out.print("B: ");
+        b = input.nextDouble();
+        System.out.println("Informe o valor de C");
+        System.out.print("C: ");
+        c = input.nextDouble();
+        System.out.println("Informe o valor de D");
+        System.out.print("D: ");
+        d = input.nextDouble();
+        System.out.println("Informe o valor de E");
+        System.out.print("E: ");
+        e = input.nextDouble();
+        System.out.println("Informe o valor de F");
+        System.out.print("F: ");
+        f = input.nextDouble();
+
+        x = (c * e) - (b * f) / (a * e) - (b * d);
+
+        y = (a * f) - (c * d) / (a * e) - (b * d);
+
+        System.out.println("O valor de X é " + x + "o valor de Y é " + y);
+
+    }
+}

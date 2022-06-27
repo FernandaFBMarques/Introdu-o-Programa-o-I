@@ -1,0 +1,31 @@
+package com.company;
+import java.util.Scanner;
+class Main {
+    public static void main(String args[]) {
+        Scanner input = new Scanner (System. in);
+        double cLeftSuperiorX = 0;
+        double cLeftSuperiorY;
+        double cLeftInferiorX = 0;
+        double cLeftInferiorY = 0;
+        double cRightSuperiorX;
+        double cRightSuperiorY;
+        double cRightInferiorX;
+        double cRightInferiorY = 0;
+        double height;
+        double width;
+        System.out.println ("Informe o valor coordenada superior esquerda");
+        cLeftSuperiorY = input.nextDouble ();
+        System.out.println ("Informe o valor da altura");
+        height = input.nextDouble ();
+        System.out.println ("Informe o valor da largura");
+        width = input.nextDouble ();
+        cRightInferiorX = (width * cLeftSuperiorY) / height;
+        cRightSuperiorY = cLeftSuperiorY;
+        cRightSuperiorX = cRightInferiorX;
+        System.out.println ("A coordenada esquerda inferior é" + cLeftInferiorX + "," + cLeftInferiorY);
+        System.out.println ("A coordenada direita inferior é" + cRightInferiorX + "," + cRightInferiorY);
+        System.out.println ("A coordenada esquerda superior é" + cLeftSuperiorX + "," + cLeftSuperiorY);
+        System.out.println ("A coordenada direita superior é" + cRightSuperiorX + "," + cRightSuperiorY);
+
+    }
+}

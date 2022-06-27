@@ -1,0 +1,41 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        double weight;
+        double height;
+        double gender;
+        double idealWeightWomen;
+        double idealWeightMen;
+        double women;
+        double men;
+
+        System.out.println("Inform the gender of the person (man = 1 or women = 2)");
+        System.out.print("Gender: ");
+        gender = input.nextDouble();
+        System.out.println("Inform the height of the person");
+        System.out.print("Height: ");
+        height = input.nextDouble();
+        System.out.println("Inform the weight of the person");
+        System.out.print("Weight: ");
+        weight = input.nextDouble();
+
+        if(gender = 2){
+            idealWeightWomen =  62.1 * height – 44.7;
+        }else if(weight = idealWeightWomen){
+            System.out.println("This person have the ideal weight");
+        }else{
+            System.out.println("This person do not have the ideal weight");
+
+        }if else (gender = men){
+            idealWeightMen = 72.7 * height – 58.0;
+        }else if(weight = idealWeightWomen){
+            System.out.println("This person have the ideal weight");
+        }else{
+            System.out.println("This person do not have the ideal weight");
+
+        }
+    }   
+}

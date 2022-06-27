@@ -1,0 +1,18 @@
+package com.company;
+import java.util.Scanner;
+class Main {
+    public static void main(String args[]) {
+        Scanner input = new Scanner (System. in);
+        double price= 100;
+        double discount;
+        double discountValue;
+        double finalPrice;
+        System.out.println ("o preço é R$"+ price);
+        System.out.println("informe o valor do  desconto");
+        discount = input.nextDouble();
+        discountValue = price * discount / 100;
+        finalPrice = price - discountValue;
+        System.out.println ("o valor do desconto é de R$" + discountValue);
+        System.out.println ("o valor final é de R$" + finalPrice);
+    }
+}

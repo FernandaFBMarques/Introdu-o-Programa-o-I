@@ -1,0 +1,124 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+        int idade;
+        int quantidadePessoas;
+        int count = 1;
+        int count2 = 0;
+        int count3 = 0;
+        int count4 = 0;
+        int count5 = 0;
+        int count6 = 0;
+        int soma = 0;
+        char genero;
+        char corOlhos;
+        char corCabelo;
+        double peso;
+        double atura = 0;
+        double menorPesoF = Double.MIN_VALUE;
+        double maiorAlturaM = Double.MAX_VALUE;
+
+        System.out.println("Informe o número de pessoas fazem que parte do grupo");
+        System.out.print("Número de pessoas: ");
+        quantidadePessoas = in.nextInt();
+
+        while(quantidadePessoas < 1){
+            System.out.println("ERRO!A quantidade de pessoas deve ser maior ou igual a 1!");
+            System.out.print("Informe novamente o número de pessoas fazem que parte do grupo: ");
+            quantidadePessoas = in.nextInt();
+        }
+        while(count <= quantidadePessoas){
+            System.out.println("Por favor informe a idade da pessoa " + count);
+            System.out.print("Idade: ");
+            idade = in.nextInt();
+            while(idade < 1 || idade > 120){
+                System.out.println("ERRO!A idade da pessoa deve estar entre 1 e 120 anos!");
+                System.out.print("Por favor informe novamente a idade da pessoa " + count + ":");
+                idade = in.nextInt();
+            }
+            System.out.println("Por favor informe o gênero da pessoa " + count);
+            System.out.println("F ou M");
+            System.out.print("Gênero: ");
+            genero = in.next().charAt(0);
+            genero = Character.toUpperCase(genero);
+            while(genero != 'F' && genero != 'M'){
+                System.out.println("ERRO!O gênero da pessoa deve ser digitado como F ou M!");
+                System.out.print("Por favor informe novamente o gênero da pessoa " + count + ":");
+                genero = in.next().charAt(0);
+                genero = Character.toUpperCase(genero);
+            }
+            System.out.println("Por favor informe a cor dos olhos da pessoa " + count);
+            System.out.println("A ou P ou V ou C");
+            System.out.print("Cor dos olhos: ");
+            corOlhos = in.next().charAt(0);
+            corOlhos = Character.toUpperCase(corOlhos);
+            while(corOlhos != 'A' && corOlhos != 'P' && corOlhos != 'V' && corOlhos != 'C'){
+                System.out.println("ERRO!O gênero da pessoa deve ser digitado como A ou P ou V ou C!");
+                System.out.print("Por favor informe novamente a cor dos olhos da pessoa " + count + ":");
+                corOlhos = in.next().charAt(0);
+                corOlhos = Character.toUpperCase(corOlhos);
+            }
+            System.out.println("Por favor informe a cor do cabelo da pessoa " + count);
+            System.out.println("P ou C ou L ou R");
+            System.out.print("Cor do cabelo: ");
+            corCabelo = in.next().charAt(0);
+            corCabelo = Character.toUpperCase(corCabelo);
+            while(corCabelo != 'P' && corCabelo != 'C' && corCabelo != 'L' && corCabelo != 'R'){
+                System.out.println("ERRO!O gênero da pessoa deve ser digitado como P ou C ou L ou R!");
+                System.out.print("Por favor informe novamente a cor dos olhos da pessoa " + count + ":");
+                corCabelo = in.next().charAt(0);
+                corCabelo = Character.toUpperCase(corCabelo);
+            }
+            System.out.println("Por favor informe o peso da pessoa " + count);
+            System.out.print("Peso: ");
+            peso = in.nextDouble();
+            while(peso < 3 || peso > 300){
+                System.out.println("ERRO!O peso da pessoa deve estar entre 3Kg e 300Kg!");
+                System.out.print("Por favor informe novamente o peso da pessoa " + count);
+                peso = in.nextDouble();
+            }
+            System.out.println("Por favor informe a altura da pessoa " + count);
+            System.out.print("Altura: ");
+            double altura = in.nextDouble();
+            while(altura < 0.5 || altura > 2.5){
+                System.out.println("ERRO!A altura da pessoa deve estar entre 0,5m e 2,5m!");
+                System.out.print("Por favor informe novamente a altura da pessoa " + count);
+                altura = in.nextDouble();
+            }
+            if(idade > 50 && peso < 60 && genero == 'F'){
+                count2 = count2 + 1;
+            }
+            if(genero == 'M' && altura > 1.50){
+                count3 = count3 + 1;
+                soma = (int) (soma + altura);
+            }
+            if(corOlhos == 'A'){
+                count4 = count4 + 1;
+            }
+            if(corCabelo == 'R' && corOlhos != 'A'){
+                count5 = count5 + 1;
+            }
+            if(menorPesoF == Double.MIN_VALUE && genero == 'F'){
+                menorPesoF = peso;
+            }else if (peso < menorPesoF){
+                menorPesoF = peso;
+            }
+            if(maiorAlturaM == Double.MAX_VALUE && genero == 'M'){
+                maiorAlturaM = altura;
+            }else if (altura > maiorAlturaM){
+                maiorAlturaM = altura;
+            }
+            count = count + 1;
+        }
+        double media1 = soma / count4;
+        double porcentagemA = count4 * (100.0 / quantidadePessoas);
+        System.out.println("A quantidade de mulheres com idade superior a 50 anos e peso inferior a 60 quilos é " + count2);
+        System.out.println("A média das idades dos homens com altura inferior a 1,50m é " + media1);
+        System.out.println("A porcentagem de pessoas com olhos azuis entre todas as pessoas analisadas é " + porcentagemA);
+        System.out.println("A quantidade de pessoas ruivas e que não possuem olhos azuis " + count5);
+        System.out.println("O peso da mulher mais magra " + menorPesoF);
+        System.out.println("A altura do homem mais alto " + maiorAlturaM);
+    }
+}

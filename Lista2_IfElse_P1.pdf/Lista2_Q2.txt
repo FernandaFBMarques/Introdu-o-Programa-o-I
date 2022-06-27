@@ -1,0 +1,31 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        double grade1;
+        double grade2;
+        double finalGrade;
+
+        System.out.println("Please report the grade of the first exam");
+        System.out.print("Grade 1: ");
+        grade1 = input.nextDouble();
+        System.out.println("Please report the grade of the second exam");
+        System.out.print("Grade 2: ");
+        grade2 = input.nextDouble();
+
+        finalGrade = (grade1 + grade2) / 2;
+
+        if(finalGrade >= 7.0){
+            System.out.println("The student's average is " + finalGrade + " and is approved");
+
+        }else if(finalGrade >= 3.0){
+            System.out.println("The student's average is " + finalGrade + " and needs to retake the exam");
+
+            }else{
+                System.out.println("The student's average is " + finalGrade + " and is not approved");
+
+        }
+    }
+}

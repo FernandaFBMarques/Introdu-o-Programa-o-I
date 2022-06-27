@@ -1,0 +1,41 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner (System.in);
+
+        double a;
+        double b;
+        double c;
+
+        System.out.println("Please report the value of A");
+        System.out.print("A: ");
+        a = input.nextDouble();
+        System.out.println("Please report the value of B");
+        System.out.print("B: ");
+        b = input.nextDouble();
+        System.out.println("Please report the value of C");
+        System.out.print("C: ");
+        c = input.nextDouble();
+
+        double x1;
+        double x2;
+
+        double delta = Math.pow(b,2) - 4.0 * a * c;
+
+        if(delta < 0){
+            System.out.println("There is no real root");
+
+        }else if(delta == 0){
+            x1 = - b / 2.0 * a;
+            System.out.println("X1 and X2 are the same and it's value is " + x1);
+
+        }else if(delta > 0){
+            x1 = (-b + Math.sqrt(delta) / 2.0 * a);
+
+            x2 = (-b - Math.sqrt(delta) / 2.0 * a);
+
+            System.out.println("The value of X1 is " + x1 + " and the value of X2 is " + x2);
+        }
+    }
+}

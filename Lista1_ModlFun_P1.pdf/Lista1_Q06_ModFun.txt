@@ -1,0 +1,53 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class conversao {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        char resposta;
+        do {
+            double a;
+            double b;
+            double c;
+
+            System.out.println("Por favor informe o valor de a: ");
+            a = input.nextDouble();
+            System.out.println("Por favor informe o valor de b: ");
+            b = input.nextDouble();
+            System.out.println("Por favor informe o valor de c: ");
+            c = input.nextDouble();
+
+            x(a,b,c);
+
+            System.out.println("Você deseja calcula outra equação? (s para sim e n para não)");
+            resposta = input.next().charAt(0);
+            resposta = Character.toLowerCase(resposta);
+            while (resposta != 's' && resposta != 'n') {
+                System.out.println("ERRO!");
+                System.out.println("Você deseja realizar outra conversão? (s para sim e n para não)");
+                resposta = input.next().charAt(0);
+                resposta = Character.toLowerCase(resposta);
+            }
+
+        } while (resposta == 's');
+
+    }
+
+    public static double deltaFun(double a, double b, double c){
+        double delta;
+        delta = Math.pow(b,2) - 4 * a * c;
+        return delta;
+    }
+
+    public static void x(double a, double b, double c){
+        if((deltaFun(a,b,c)) == 0 || (deltaFun(a,b,c)) < 0){
+            System.out.println("X1 = " + ((- b + Math.sqrt(deltaFun(a,b,c))) / 2.0 * a));
+            System.out.println("X1 = " + ((- b - Math.sqrt(deltaFun(a,b,c))) / 2.0 * a));
+        }else if((deltaFun(a,b,c)) > 0){
+            System.out.println("A equação não possui raízes reais!");
+        }
+
+    }
+}

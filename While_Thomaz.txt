@@ -1,0 +1,26 @@
+package com.company;
+
+import java.util.Scanner;
+
+class Main {
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+        System.out.println(sum(5, 9));
+        System.out.println(pow(5, 3));
+    }
+
+    static double sum(double first, double second) {
+        return first + second;
+    }
+
+    static int pow(int first, int second) {
+        int counter = 1;
+        int pow = first;
+        while (counter < second) {
+            pow = first * pow;
+            counter = counter + 1;
+            //counter++
+        }
+        return pow;
+    }
+}

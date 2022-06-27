@@ -1,0 +1,39 @@
+package com.company;
+import java.util.Scanner;
+class Main {
+    public static void main(String args[]) {
+        Scanner input = new Scanner (System. in);
+        double x1;
+        double y1;
+        double x2;
+        double y2;
+        double x3;
+        double y3;
+        double x4;
+        double y4;
+        double height;
+        double width;
+        System.out.println ("Insira o valor de X1");
+        System.out.print ("X1: ");
+        x1 = input.nextDouble();
+        System.out.println ("Insira o valor de Y1");
+        System.out.print ("Y1: ");
+        y1 = input.nextDouble();
+        System.out.println ("Insira o valor da altura");
+        System.out.print ("altura: ");
+        height = input.nextDouble();
+        System.out.println ("Insira o valor da largura");
+        System.out.print ("largura: ");
+        width = input.nextDouble();
+        y2 = y1;
+        x2 = x1 + width;
+        x3 = x1;
+        y3 = y1 - height;
+        x4 = x2;
+        y4 = y3;
+        System.out.println ("Coordenada Superior Direita = " + x2 + "," + y2);
+        System.out.println ("Coordenada Inferior Esquerda = " + x3 + "," + y3);
+        System.out.println ("Coordenada Inferior Direita = " + x4 + "," + y4);
+
+    }
+}

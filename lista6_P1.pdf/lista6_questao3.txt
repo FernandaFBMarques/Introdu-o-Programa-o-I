@@ -1,0 +1,37 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main (String args[]){
+        Scanner input = new Scanner (System.in);
+
+        double gato1RacaoGDia;
+        double gato2RacaoGDia;
+        double gato1RacaoKgDia;
+        double gato2RacaoKgDia;
+        double quantTotalKgRacao;
+        double quantTotalKgRacaoDia;
+        double dias;
+
+
+        System.out.println("Informe a quantidade em gramas de ração que o gato 1 consome por dia");
+        System.out.print("Ração em gramas: ");
+        gato1RacaoGDia = input.nextDouble();
+        System.out.println("Informe a quantidade em gramas de ração que o gato 2 consome por dia");
+        System.out.print("Ração em gramas: ");
+        gato2RacaoGDia = input.nextDouble();
+        System.out.println("Informe o número de dias");
+        System.out.print("Dias: ");
+        dias = input.nextDouble();
+
+        gato1RacaoKgDia = gato1RacaoGDia / 1000;
+        gato2RacaoKgDia = gato2RacaoGDia / 1000;
+
+        quantTotalKgRacaoDia = Math.ceil(gato1RacaoKgDia + gato2RacaoKgDia);
+
+        quantTotalKgRacao = dias * quantTotalKgRacaoDia;
+
+        System.out.println("A quantidade de total de ração para " + dias + "dias é igual a " + quantTotalKgRacao + "Kg");
+
+
+    }
+}

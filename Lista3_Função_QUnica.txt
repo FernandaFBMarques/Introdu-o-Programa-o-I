@@ -1,0 +1,143 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class conversao {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        double salarioBase;
+        char turno;
+        char categoria;
+        char resposta;
+        double numHorasPorMes;
+
+        do {
+            System.out.println("Por favor informe o salário base do funcionário: ");
+            salarioBase = input.nextDouble();
+
+            System.out.println("Por favor informe qual o turno que o funcionário trabalha: ");
+            System.out.println("m para matutino");
+            System.out.println("v para vespertino");
+            System.out.println("n para noturno");
+            turno = input.next().charAt(0);
+            turno = Character.toLowerCase(turno);
+            while (turno != 'm' && turno != 'v' && turno != 'n') {
+                System.out.println("ERRO! Por favor informe NOVAMENTE qual o turno que o funcionário trabalha: ");
+                System.out.println("m para matutino");
+                System.out.println("v para vespertino");
+                System.out.println("n para noturno");
+                turno = input.next().charAt(0);
+                turno = Character.toLowerCase(turno);
+            }
+            System.out.println("Por favor informe qual categoria do funcionário: ");
+            System.out.println("o para operário");
+            System.out.println("g para gerente");
+            categoria = input.next().charAt(0);
+            categoria = Character.toLowerCase(categoria);
+            while (categoria != 'o' && categoria != 'g') {
+                System.out.println("ERRO! Por favor informe NOVAMENTE qual categoria do funcionário: ");
+                System.out.println("o para operário");
+                System.out.println("g para gerente");
+                categoria = input.next().charAt(0);
+                categoria = Character.toLowerCase(categoria);
+            }
+            System.out.println("Por favor informe o número de horas trabalhadas pelo funcionário por mês: ");
+            numHorasPorMes = input.nextInt();
+
+            System.out.println("O valor de seu salário liquido é R$" + salarioLiquidoFun(salarioBase, numHorasPorMes, categoria, turno) + "O funcionário é considerado " + classificaçãoFun(salarioBase, numHorasPorMes, categoria, turno));
+            System.out.println("1 - Mal remunerado");
+            System.out.println("2 - Normal");
+            System.out.println("3 - Bem remunerado");
+
+            System.out.println("Você deseja calcular os dados de outro funcionário?");
+            System.out.println("s para sim");
+            System.out.println("n para não");
+            resposta = input.next().charAt(0);
+            resposta = Character.toLowerCase(resposta);
+            while (resposta != 's' && resposta != 'n') {
+                System.out.println("ERRO! Você deseja calcular os dados de outro funcionário?");
+                System.out.println("s para sim");
+                System.out.println("n para não");
+                resposta = input.next().charAt(0);
+                resposta = Character.toLowerCase(resposta);
+            }
+
+        } while (resposta == 's');
+    }
+
+    public static double coeficienteSalarioFun(char turno, double salarioBase) {
+        double result = 0;
+        if (turno == 'm') {
+            result = salarioBase * 0.1;
+        } else if (turno == 'v') {
+            result = salarioBase * 0.15;
+        } else if (turno == 'n') {
+            result = salarioBase * 0.2;
+        }
+        return result;
+    }
+
+    public static double salarioBrutoFun(double salarioBase, double numHorasPorMes, char turno) {
+        double result;
+        result = salarioBase + numHorasPorMes * (coeficienteSalarioFun(turno, salarioBase));
+        return result;
+    }
+
+    public static double impostoSobreSbFun(char categoria, double salarioBase, double numHorasPorMes, char turno) {
+        double result = 0;
+        if (categoria == 'o') {
+            if ((salarioBrutoFun(salarioBase, numHorasPorMes, turno)) >= 300.0) {
+                result = 0.05;
+            } else if ((salarioBrutoFun(salarioBase, numHorasPorMes, turno)) < 300.0) {
+                result = 0.03;
+            }
+        } else if (categoria == 'g') {
+            if ((salarioBrutoFun(salarioBase, numHorasPorMes, turno)) >= 400.0) {
+                result = 0.06;
+            } else if ((salarioBrutoFun(salarioBase, numHorasPorMes, turno)) < 300.0) {
+                result = 0.04;
+            }
+        }
+        return result;
+    }
+
+    public static double gratificaçãoFun(int numHorasPorMes, char turno) {
+        double result;
+        if (turno == 'n' && numHorasPorMes > 80) {
+            result = 50;
+        } else {
+            result = 30;
+        }
+        return result;
+    }
+
+    public static double auxilioAlimentFun(char categoria, double salarioBase, char turno, double numHorasPorMes) {
+        double result;
+        if (categoria == 'o' || (coeficienteSalarioFun(turno, salarioBase)) <= 25.0) {
+            result = (salarioBrutoFun(salarioBase, numHorasPorMes, turno)) / 3;
+        } else {
+            result = (salarioBrutoFun(salarioBase, numHorasPorMes, turno)) / 2;
+        }
+        return result;
+    }
+
+    public static double salarioLiquidoFun(double salarioBase, double numHorasPorMes, char categoria, char turno) {
+        double result;
+        result = (salarioBrutoFun(salarioBase, numHorasPorMes, turno)) - (impostoSobreSbFun(categoria, salarioBase, numHorasPorMes, turno)) + (auxilioAlimentFun(categoria, salarioBase, turno, numHorasPorMes));
+        return result;
+    }
+
+    public static int classificaçãoFun(double salarioBase, double numHorasPorMes, char categoria, char turno) {
+        int result = 0;
+        if (salarioLiquidoFun(salarioBase, numHorasPorMes, categoria, turno) < 500.0) {
+            result = 1;
+        } else if (salarioLiquidoFun(salarioBase, numHorasPorMes, categoria, turno) < 1000.0) {
+            result = 2;
+        } else if (salarioLiquidoFun(salarioBase, numHorasPorMes, categoria, turno) >= 1000.0) {
+            result = 3;
+        }
+        return result;
+    }
+}

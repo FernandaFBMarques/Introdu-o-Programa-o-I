@@ -1,0 +1,32 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        double a;
+        double b;
+        double x;
+        double valueOfEquivalence;
+
+        System.out.println("Report the value of A");
+        System.out.print("A: ");
+        a = input.nextDouble();
+        System.out.println("Report the value of B");
+        System.out.print("B: ");
+        b = input.nextDouble();
+        System.out.println("Report the value of wich the equacion should be equivalent ");
+        System.out.print("Value of equivalence: ");
+        valueOfEquivalence = input.nextDouble();
+
+        x = (valueOfEquivalence - b) / a;
+
+        if(a = 0){
+            System.out.println("Erro!")
+        }else{
+            System.out.println("The value of X is " + x);
+
+        }
+
+    }
+}

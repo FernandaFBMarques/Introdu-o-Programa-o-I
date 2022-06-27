@@ -1,0 +1,29 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        double number1;
+        double number2;
+
+        System.out.println("Report a full number");
+        System.out.print("First number: ");
+        number1 = input.nextDouble();
+        System.out.println("Report another full number");
+        System.out.print("Second number: ");
+        number2 = input.nextDouble();
+
+        System.out.println("Now we will discover wich number is higher");
+
+        if(number1>number2){
+            System.out.println("The number " + number1 + " is higher than " + number2);
+        }
+        else if(number1==number2){
+            System.out.println("The number " + number1 + " and " + number2 + " are equal");
+        }
+        else if(number2>number1){
+            System.out.println("The number " + number2 + " is higher than " + number1);
+        }
+    }
+}

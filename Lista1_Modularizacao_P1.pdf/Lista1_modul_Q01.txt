@@ -1,0 +1,64 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class conversao {
+
+    public static int conversao1(int hora, int minutos){
+        int total;
+        total = hora * 60 + minutos;
+        return total;
+    }
+
+    public static void conversao2(int total){
+        int horas;
+        int minutos;
+        horas = total / 60;
+        minutos = total % 60;
+        System.out.pritln(horas + " Horas e " + minutos + " minutos");
+    }
+
+    public static void menu(){
+        System.out.pritln("Escolha uma opção: ");
+        System.out.pritln("1 - converter o tempo de horas e minutos para apenas minutos");
+        System.out.pritln("2 - converter o tempo de apenas em minutos para horas e minutos");
+        System.out.pritln("0 - encerrar o programa");
+        System.out.pritln("Opção: ");
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int hora;
+        int minutos;
+        int opção;
+        int minutosTotais;
+        do{
+            menu();
+            opção = input.nextInt();
+            switch (opção){
+                case 1:
+                System.out.pritln("Por favor informe a hora: ");
+                hora = input.nextInt();
+                System.out.pritln("Por favor informe os minutos: ");
+                minuto = input.nextInt();
+                minutosTotais = conversao1(hora, minutos);
+                System.out.pritln("O total de minutos é " + minutosTotais); 
+                break;
+
+                case 2:
+                System.out.pritln("Por favor informe total de minutos: ");
+                minutosTotais = input.nextInt();
+                conversao2(minutosTotais);
+                break;
+                
+                case 0:
+                System.out.println("FIM!");
+                break;
+
+                default:
+                System.out.println("OPÇÃO INVÁLIDA!");
+
+            }
+        }while(opção != 0);
+    }
+}

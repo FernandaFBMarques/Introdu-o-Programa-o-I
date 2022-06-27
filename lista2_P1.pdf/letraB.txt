@@ -1,0 +1,38 @@
+package com.company;
+import java.util.Scanner;
+class Main {
+    public static void main(String args[]) {
+        Scanner input = new Scanner (System. in);
+            double baseArea;
+            double lateralArea;
+            double totalArea;
+            double heightCylinders;
+            double diameterCylinders;
+            double amountOfCylinders;
+            double pi = 3.14;
+            double paintCan;
+            double paintCanCost;
+            double paintCanLiters;
+            double rayCylinders;
+            double amountOfCansUsed;
+            System.out.println ("informe o valor da altura");
+            heightCylinders = input.nextDouble();
+            System.out.println ("informe o valor do diâmetro da base");
+            diameterCylinders = input.nextDouble();
+            rayCylinders = diameterCylinders / 2;
+            System.out.println ("informe a quantidade de cilindros");
+            amountOfCylinders = input.nextDouble();
+            paintCanCost = 45;
+            baseArea = pi * Math.pow (rayCylinders,2);
+            System.out.println ("A area da base é "+ baseArea);
+            lateralArea = 2 * pi * rayCylinders * heightCylinders;
+            System.out.println ("A area lateral é "+ lateralArea);
+            totalArea = (2 * baseArea) + lateralArea;
+            System.out.println ("a area total é "+ totalArea);
+            amountOfCansUsed = Math.ceil (totalArea / 15);
+            System.out.println ("A quantidade de latas usadas foi de "+ (amountOfCansUsed));
+            paintCanCost = 45 * (amountOfCansUsed);
+            System.out.println ("O custo para pintar a área externa dos cilindros foi R$ "+ paintCanCost);
+
+    }
+}

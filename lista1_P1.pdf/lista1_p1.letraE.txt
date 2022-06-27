@@ -1,0 +1,42 @@
+
+package com.company;
+import java.util.Scanner;
+class Main {
+    public static void main(String args[]) {
+        Scanner input = new Scanner (System. in);
+        double minimumWage;
+        double numberOfHoursWorked;
+        double numberOfDependents;
+        double extraHours;
+        double numberOfExtraHours;
+        double hoursValue;
+        double monthWage;
+        double familyWage;
+        double extraHourValue;
+        double grossWage;
+        double irrf;
+        double netWage;
+        minimumWage = 1212;
+        System.out.println ("o valor do salário mínimo é de R$" + minimumWage);
+        hoursValue = minimumWage * 1/10;
+        System.out.println ("o valor da hora trabalhada é de R$ " + hoursValue);
+        System.out.println ("informe o número de horas trabalhadas");
+        numberOfHoursWorked = input.nextDouble();
+        monthWage = numberOfHoursWorked * hoursValue;
+        System.out.println ("o valor do salário do mês é de R$" + monthWage);
+        familyWage = minimumWage * 5/100;
+        System.out.println ("informe o número de horas extras trabalhadas");
+        numberOfExtraHours = input.nextDouble();
+        extraHourValue = 1.5 * hoursValue;
+        extraHours = extraHourValue * numberOfExtraHours;
+        System.out.println ("o valor total de hora extra é de R$" + extraHours);
+        System.out.println ("informe o número de dependentes");
+        numberOfDependents = input.nextDouble();
+        System.out.println ("o valor do salário família é de R$" + familyWage);
+        grossWage = monthWage + (familyWage * numberOfDependents) + (extraHourValue * numberOfExtraHours);
+        System.out.println ("o valor do salário bruto é de R$" + grossWage);
+        irrf = grossWage * 10/100;
+        netWage = grossWage - irrf;
+        System.out.println ("o valor do salário líquido  é de R$" + netWage);
+    }
+}

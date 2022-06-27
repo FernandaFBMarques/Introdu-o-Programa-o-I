@@ -1,0 +1,65 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        double grade1 = 0;
+        double grade2 = 0;
+        double finalGrade;
+        int students = 0;
+        int numberStudentsApproved = 0;
+        int numberStudentsNotApproved = 0;
+        int numberStudentsRetakeTest = 0;
+        double sum = 0;
+
+        while(students != 30){
+            students = students + 1;
+            System.out.println("Please report the first grade: ");
+            System.out.print("Grade 1: ");
+            grade1 = input.nextDouble();
+            System.out.println("Please report the second grade: ");
+            System.out.print("Grade 2: ");
+            grade2 = input.nextDouble();
+            finalGrade = (grade1 + grade2) / 2.0;
+            sum = sum + Math.abs(finalGrade);
+
+            while(grade1 > 10 || grade1 < 0 || grade2 > 10 || grade2 < 0){
+                System.out.println("These grades are INVALID!");
+                System.out.println("Please report another grade");
+                System.out.print("Grade 1: ");
+                grade1 = input.nextDouble();
+                System.out.print("Grade 2: ");
+                grade2 = input.nextDouble();
+                finalGrade = (grade1 + grade2) / 2.0;
+            }
+            if(finalGrade >= 7){
+                System.out.println("The student is APPROVED! His average is " + finalGrade);
+                numberStudentsApproved = numberStudentsApproved + 1;
+
+            }else if(finalGrade < 7 && finalGrade >= 3){
+                System.out.println("The student needs to take another test. His average is " + finalGrade);
+                numberStudentsRetakeTest = numberStudentsRetakeTest + 1;
+
+            }else{
+                System.out.println("The student is NOT approved! His average is " + finalGrade);
+                numberStudentsNotApproved = numberStudentsNotApproved + 1;
+            }
+            System.out.println("This is student number " + students);
+        }
+        System.out.println("The number of students that are approved is " + numberStudentsApproved);
+        System.out.println("The number of students that need to retake the test is " + numberStudentsRetakeTest);
+        System.out.println("The number of students that are not approved is " + numberStudentsNotApproved);
+
+        double percentageStudentsApproved = numberStudentsApproved * (100.0 / 30.0);
+        double percentageStudentsRetakeTest =  numberStudentsRetakeTest * (100.0 / 30.0);
+        double percentageStudentsNotApproved = numberStudentsNotApproved * (100.0 / 30.0);
+
+        System.out.println("The percentage of students that are approved is " + percentageStudentsApproved + "%");
+        System.out.println("The percentage of students that need to retake the test is " + percentageStudentsRetakeTest + "%");
+        System.out.println("The percentage of students that are not approved is " + percentageStudentsNotApproved + "%");
+
+        double classAverage = sum / 30;
+        System.out.println("The class average is " + classAverage);
+    }
+}

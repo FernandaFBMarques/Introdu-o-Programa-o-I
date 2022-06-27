@@ -1,0 +1,35 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        double premioCompartilhado = 500000;
+        double pontosP1;
+        double pontosP2;
+        double pontosP3;
+        double premioP1;
+        double premioP2;
+        double premioP3;
+
+        System.out.println("A soma total dos pontos deve dar 100")
+        System.out.println("Informe a quantidade de pontos do participante 1");
+        System.out.print("Pontos participante 1: ");
+        pontosP1 = input.nextDouble();
+        System.out.println("Informe a quantidade de pontos do participante 2");
+        System.out.print("Pontos participante 2: ");
+        pontosP2 = input.nextDouble();
+        System.out.println("Informe a quantidade de pontos do participante 3");
+        System.out.print("Pontos participante 3: ");
+        pontosP3 = input.nextDouble();
+
+        premioP1 = premioCompartilhado * (pontosP1 / 100);
+        premioP2 = premioCompartilhado * (pontosP2 / 100);
+        premioP3 = premioCompartilhado * (pontosP3 / 100);
+
+        System.out.println("O participante 1 obteve " + pontosP1 + "pontos e irá receber R$" + premioP1);
+        System.out.println("O participante 2 obteve " + pontosP2 + "pontos e irá receber R$" + premioP2);
+        System.out.println("O participante 3 obteve " + pontosP3 + "pontos e irá receber R$" + premioP3);
+
+    } 
+}

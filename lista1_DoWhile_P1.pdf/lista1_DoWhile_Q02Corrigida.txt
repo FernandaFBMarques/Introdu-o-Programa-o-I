@@ -1,0 +1,98 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        char gender;
+        char premature;
+        char answer;
+        int days = 0;
+        int count = 0;
+        int count1 = 0;
+        int count2 = 0;
+        int count3 = 0;
+        int soma = 0;
+        int mostDays = Integer.MAX_VALUE;
+
+        do{
+            System.out.println("Please report the baby's gender. f for feminine and m for masculine");
+            System.out.print("Gender: ");
+            gender = input.next().charAt(0);
+            gender = Character.toLowerCase(gender);
+            while(gender != 'f' && gender != 'm'){
+                System.out.println("The answer is INVALID!");
+                System.out.print("Please report the baby's gender. f for feminine and m for masculine: ");
+                gender = input.next().charAt(0);
+                gender = Character.toLowerCase(gender);
+            }
+            System.out.println("Please report if the baby is premature. y for yes and n for no");
+            System.out.print("Answer: ");
+            premature = input.next().charAt(0);
+            premature = Character.toLowerCase(premature);
+            while(premature != 'y' && premature != 'n'){
+                System.out.println("The answer is INVALID!");
+                System.out.print("Please report if the baby is premature. y for yes and n for no: ");
+                premature = input.next().charAt(0);
+                premature = Character.toLowerCase(premature);
+            }
+            if(premature == 'y'){
+                System.out.println("Please report how many days the baby spent in the incubator");
+                System.out.print("Days: ");
+                days = input.nextInt();
+                while(days <= 0){
+                    System.out.println("The answer is INVALID! It must be above or equal one day");
+                    System.out.print("Please report how many days the baby spent in the incubator: ");
+                    days = input.nextInt();
+                }
+                count1 = count1 + 1;
+                soma = soma + days;
+                if(gender == 'm'){
+                    count2 = count2 + 1;
+                }
+                if(gender == 'f'){
+                    count3 = count3 + 1;
+                }
+                if(mostDays == Integer.MAX_VALUE){
+                    mostDays = days;
+                }else if(days > mostDays){
+                    mostDays = days;
+                }
+            }
+            count = count + 1;
+
+            System.out.print("There is another baby? (y for yes and n for no)");
+            answer = input.next().charAt(0);
+            answer = Character.toLowerCase(answer);
+
+            while(answer != 'y' && answer != 'n'){
+                System.out.println("The answer is INAVLID! (y for yes and n for no)");
+                System.out.print("There is another baby?");
+                answer = input.next().charAt(0);
+                answer = Character.toLowerCase(answer);
+            }
+        }while(answer == 'y');
+
+        if(count1 >= 1){
+            double percentagePremature = count1 * (100.0 / count);
+            System.out.println("The percentage of premature new borns is " + percentagePremature + "%");
+            if(count2 == 0){
+                System.out.println("No premature babies boys were born");
+            }else{
+                double percentagePrematureM = count2 * (100.0 / count1);
+                System.out.println("The percentage of masculines premature new borns is " + percentagePrematureM + "%");
+            }
+            if(count3 == 0){
+                System.out.println("No premature babies girls were born");
+            }else{
+                double percentagePrematureF = count3 * (100.0 / count1);
+                System.out.println("The percentage of feminines premature new borns is " + percentagePrematureF + "%");
+            }
+            double averageDays = (double) (soma / count1);
+            System.out.println("The average of new borns in the incubator is " + averageDays + " days");
+            System.out.println("The longer number of days a new borns has been in the incubator is " + mostDays + " days");
+        }else{
+            System.out.println("No premature babies were born");
+        }
+    }
+}

@@ -1,0 +1,54 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class conversao{
+
+    public static void media(double nota1, double nota2){
+        double media = (nota1 + nota2) / 2;
+        System.out.println("A média é " + media);
+        System.out.println("O conceito do aluno é " + conceitoFun(media));
+    }
+
+    public static char conceitoFun (double media1){
+        char conceito = 0;
+        if(media1 >= 0.0 && media1 < 5.0){
+            conceito = 'D';
+        }else if(media1 < 7.0){
+            conceito = 'C';
+        }else if(media1 < 9.0){
+            conceito = 'B';
+        }else if(media1 <= 10.0){
+            conceito = 'A';
+        }
+        return conceito;
+    }
+
+    public static void main(String [] args){
+        Scanner input = new Scanner(System.in);
+
+        int cont;
+
+        for(cont = 1; cont <= 60; cont = cont + 1){
+            double nota1;
+            double nota2;
+
+            System.out.println("Por favor informe a nota 1 do aluno " + cont);
+            nota1 = input.nextDouble();
+            while(nota1 < 0.0 || nota1 > 10.0){
+                System.out.println("ERRO! As notas devem estar no intervalo entre 0.0 e 10.0");
+                System.out.println("Por favor informe novamente a nota 1 do aluno " + cont);
+                nota1 = input.nextDouble();
+            }
+            System.out.println("Por favor informe a nota 2 do aluno " + cont);
+            nota2 = input.nextDouble();
+            while(nota2 < 0.0 || nota2 > 10.0){
+                System.out.println("ERRO! As notas devem estar no intervalo entre 0.0 e 10.0");
+                System.out.println("Por favor informe novamente a nota 2 do aluno " + cont);
+                nota2 = input.nextDouble();
+            }
+
+            media(nota1, nota2);
+        }
+    }
+}

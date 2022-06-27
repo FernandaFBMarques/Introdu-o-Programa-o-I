@@ -1,0 +1,21 @@
+package com.company;
+import java.util.Scanner;
+class Main {
+    public static void main(String args[]) {
+        Scanner input = new Scanner (System. in);
+        double PI = 3.14;
+        double ray;
+        double hight;
+        double baseArea;
+        double volume;
+        System.out.println("informe o valor do raio");
+        ray = input.nextDouble();
+        baseArea = PI * Math.pow(ray,2);
+        System.out.println (baseArea);
+        System.out.println("informe o valor da altura");
+        hight = input.nextDouble();
+        volume = baseArea * hight;
+        System.out.println ("o volume é de " + volume);
+    }
+}
+

@@ -1,0 +1,44 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main (String args[]){
+        Scanner input = new Scanner (System.in);
+
+        double x1;
+        double y1;
+        double x2;
+        double y2;
+        double x3;
+        double y3;
+        double x4;
+        double y4;
+        double raio;
+        double centroCirculoX;
+        double centroCirculoY;
+
+        System.out.println("Informe o valor da coordenada superior esquerda");
+        System.out.print("X1: ");
+        x1 = input.nextDouble();
+        System.out.print("Y1: ");
+        y1 = input.nextDouble();
+        System.out.println("Informe o valor da coordenada inferior direita");
+        System.out.print("X4: ");
+        x4 = input.nextDouble();
+        System.out.print("Y4: ");
+        y4 = input.nextDouble();
+
+        y2 = y1;
+        y3 = y4;
+        x3 = x1;
+        x2 = x4;
+
+        raio = (x4 - x3) / 2.0;
+        centroCirculoX = (x4 - x3) / 2.0;
+        centroCirculoY = (y2 - y4) / 2.0;
+
+        System.out.println("A coordenada do centro do círculo é " + centroCirculoX + ";" + centroCirculoY);
+        System.out.println("O valor do raio é " + raio);
+
+
+    }
+}

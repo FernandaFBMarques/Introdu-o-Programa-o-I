@@ -1,0 +1,21 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        int count = 0;
+        int a = 1;
+        int b = 1;
+        int c;
+
+        
+
+        while(count <= 40 ){
+            c = a + b;
+            System.out.println(c);
+            count = count + 1;
+            c = c - b;
+        }
+    }
+}

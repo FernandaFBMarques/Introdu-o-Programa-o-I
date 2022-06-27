@@ -1,0 +1,47 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        int age;
+        double weight;
+
+        System.out.println("Please report the age of the pacient");
+        System.out.print("Age: ");
+        age = input.nextInt();
+        System.out.println("Please report the weight of the pacient");
+        System.out.print("Weight: ");
+        weight = input.nextDouble();
+
+        int dosage = 0;
+
+        if(age >= 12){
+            if(weight >= 60){
+                dosage = 1000;
+            }else{
+                dosage = 875;
+            }
+        }else if(weight < 5){
+            System.out.println("Pacients who have weight under 5kg cannot take in the medicine");
+        }else if(weight <= 9){
+            dosage = 125;
+        }else if(weight <= 16){
+            dosage = 250;
+        }else if(weight <= 24){
+            dosage = 375;
+        }else if(weight <= 30){
+            dosage = 500;
+        }else if(weight > 30){
+            dosage = 750;
+        }
+        double ml;
+        double drops;
+
+        ml = dosage/500.0;
+        drops = ml * 20;
+
+        System.out.println("The pacient's prescription are " + drops + " drops of the medicine");
+
+    }
+}

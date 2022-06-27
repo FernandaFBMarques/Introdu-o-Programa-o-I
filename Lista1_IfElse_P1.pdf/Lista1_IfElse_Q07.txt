@@ -1,0 +1,26 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        double manufacturingYear;
+        double listPrice;
+        double tax;
+
+        System.out.println("Report the car's manufacturing year");
+        System.out.print("Year: ");
+        manufacturingYear = input.nextDouble();
+        System.out.println("Report the car's list price");
+        System.out.print("List price: ");
+        listPrice = input.nextDouble();
+
+        if(manufacturingYear<2000){
+            tax = listPrice * 0.01;
+             System.out.println("The car's tax is R$" + tax);
+        }else{
+            tax = listPrice * 0.015;
+            System.out.println("The car's tax is R$" + tax);
+        }
+    }
+}

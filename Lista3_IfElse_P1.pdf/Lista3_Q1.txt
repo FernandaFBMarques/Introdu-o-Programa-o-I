@@ -1,0 +1,25 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main (String args[]){
+        Scanner input = new Scanner (System.in);
+        
+        double kwMonth;
+
+        System.out.println("Please report the monthly amount of kilo watts that were consumed");
+        System.out.print("Kilo watts: ");
+        kwMonth = input.nextDouble();
+        
+        double taxPublicLight = 3.5;
+        double charge;
+
+        if(kwMonth < 10){
+            charge = 7.0 + taxPublicLight;
+
+        }else{
+            charge = (1.4 * kwMonth) + taxPublicLight;
+        }
+        System.out.println("Your lightning bill this month is R$" + charge);
+
+    }
+}

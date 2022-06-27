@@ -1,0 +1,31 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main (String args[]){
+        Scanner input = new Scanner (System.in);
+
+        int num4digitos;
+        int digito1;
+        int restoDigito1;
+        int digito2;
+        int restoDigito2;
+        int digito3;
+        int digito4;
+
+        System.out.println("Informe um número de 4 dígitos");
+        System.out.print("Número: ");
+        num4digitos = input.nextInt();
+
+        digito1 = num4digitos/1000;
+        restoDigito1 = num4digitos % 1000;
+        digito2 = restoDigito1/100;
+        restoDigito2 = restoDigito1 % 100;
+        digito3 = restoDigito2/10;
+        digito4 = restoDigito2 % 10;
+
+        System.out.println("O número de 4 digitos invertido é " + digito4 + digito3 + digito2 + digito1);
+
+
+
+    }
+}

@@ -1,0 +1,47 @@
+package com.company;
+import java.util.Scanner;
+public class conversao {
+    public static double credito (double a, double b){
+        double result;
+        result = a * (b / 100.0);
+        return result;
+    }
+    public static void main (String[] args){
+        double averageBalance;
+        double credit = 0;
+        char answer;
+        Scanner input = new Scanner (System.in);
+
+            do{
+                System.out.println("Please report the average balance");
+                System.out.print("Average balance: ");
+                averageBalance = input.nextDouble();
+                if(averageBalance <= 0){
+                    System.out.println("The credit can only be provided if the average balance is positive and above zero");
+                    credit = 0;
+                }else if(averageBalance <= 200){
+                    credit = credito(averageBalance, 10);
+                }else if(averageBalance <= 300){
+                    credit = credito(averageBalance, 20);
+                }else if(averageBalance <= 400){
+                    credit = credito(averageBalance, 25);
+                }else if(averageBalance > 400){
+                    credit = credito(averageBalance, 30);
+                }
+                System.out.println("For a average balance of R$" + averageBalance + " , it will be given a credit of R$" + credit);
+
+                System.out.println("There is another credit to be calculated? (y for yes and n for no)");
+                System.out.print("Answer: ");
+                answer = input.next().charAt(0);
+                answer = Character.toLowerCase(answer);
+
+                while(answer != 'y' && answer != 'n'){
+                    System.out.println("ERRO! The answer must be y for yes and n for no");
+                    System.out.println("There is another credit to be calculated?");
+                    System.out.print("Answer: ");
+                    answer = input.next().charAt(0);
+                    answer = Character.toLowerCase(answer);
+                }
+            }while(answer == 'y');
+        }
+    }

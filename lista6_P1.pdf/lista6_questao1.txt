@@ -1,0 +1,26 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main (String args[]){
+        Scanner input = new Scanner (System.in);
+
+        double cateto1;
+        double cateto2;
+        double hipot;
+        double hipotenusa;
+
+        System.out.println("Informe o valor do cateto 1");
+        System.out.print("Cateto 1: ");
+        cateto1 = input.nextDouble();
+        System.out.println("Informe o valor do cateto 2");
+        System.out.print("Cateto 2: ");
+        cateto2 = input.nextDouble();
+
+        hipot = Math.pow(cateto1,2.0) + Math.pow(cateto2,2.0);
+        hipotenusa = Math.sqrt(hipot);
+
+        System.out.println("O valor da hipotenusa é igual a " + hipotenusa);
+
+
+    }
+}

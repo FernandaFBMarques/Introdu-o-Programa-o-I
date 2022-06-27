@@ -1,0 +1,24 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main (String args[]){
+        Scanner input = new Scanner (System.in);
+
+        double salario;
+        double bonus;
+        double carros;
+        double valorTotalVendas;
+
+        System.out.println("Informe a quantidade de carros vendidos pelo funcionário");
+        System.out.print("Carros vendidos: ");
+        carros = input.nextDouble();
+
+        valorTotalVendas = 100 * carros;
+        bonus = 0.05 * valorTotalVendas;
+        salario = 1500 + valorTotalVendas + bonus;
+        
+        System.out.println("O salário do funcionário é igual a R$" + salario);
+
+
+    }
+}

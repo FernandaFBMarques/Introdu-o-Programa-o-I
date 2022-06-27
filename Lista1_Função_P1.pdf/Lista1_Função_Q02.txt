@@ -1,0 +1,67 @@
+package com.company;
+import java.util.Scanner;
+public class conversao {
+    public static double conversaoC (double a){
+        double result;
+        result = (a - 32) / 1.8;
+        return result;
+    }
+    public static double conversaoF (double a){
+        double result;
+        result = a * 1.8 + 32;
+        return result;
+    }
+    public static void main (String[] args){
+        double celsius1;
+        double fahrenheit1; 
+        double celsius2;
+        double fahrenheit2;
+        char answer1;
+        char answer2;
+        Scanner input = new Scanner(System.in);
+
+        do{
+            System.out.println("Please report the temperature in ˚F");
+            System.out.print("Temperature: ");
+            fahrenheit1 = input.nextDouble();
+
+            celsius1 = conversaoC(fahrenheit1);
+            System.out.println("The temperature in celsius is " + celsius1 + "˚C");
+
+            System.out.println("There is another temperature to convert? (y for yes and n for no)");
+            System.out.print("Answer: ");
+            answer1 = input.next().charAt(0);
+            answer1 = Character.toLowerCase(answer1);
+
+            while(answer1 != 'y' && answer1 != 'n'){
+                System.out.println("ERRO! The answer must be y for yes and n for no");
+                System.out.println("There is another value to convert?");
+                System.out.print("Answer: ");
+                answer1 = input.next().charAt(0);
+                answer1 = Character.toLowerCase(answer1);
+            }
+        }while(answer1 == 'y');
+
+        do{
+            System.out.println("Please report the temperature in ˚C");
+            System.out.print("Temperature: ");
+            celsius2 = input.nextDouble();
+
+            fahrenheit2 = conversaoF(celsius2);
+            System.out.println("The temperature in fahrenheit is " + fahrenheit2 + "˚F");
+
+            System.out.println("There is another temperature to convert? (y for yes and n for no)");
+            System.out.print("Answer: ");
+            answer2 = input.next().charAt(0);
+            answer2 = Character.toLowerCase(answer2);
+
+            while(answer2 != 'y' && answer2 != 'n'){
+                System.out.println("ERRO! The answer must be y for yes and n for no");
+                System.out.println("There is another value to convert?");
+                System.out.print("Answer: ");
+                answer2 = input.next().charAt(0);
+                answer2 = Character.toLowerCase(answer2);
+            }
+        }while(answer2 == 'y');
+    }
+}

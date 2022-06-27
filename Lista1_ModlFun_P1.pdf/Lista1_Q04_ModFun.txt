@@ -1,0 +1,86 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class conversao {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int golA;
+        int golB;
+        int golC;
+        int golD;
+
+        System.out.println("Por favor informe o placar do jogo Brasil X Japão");
+        System.out.println("A quantidade de gol(s) que o Brasil fez no jogo ");
+        golA = input.nextInt();
+        while (golA < 0) {
+            System.out.println("ERRO! O número de gol(s) deve ser maior ou igual a 0");
+            System.out.println("Por favor novamente a quantidade de gol(s) que o Brasil fez no jogo ");
+            golA = input.nextInt();
+        }
+        System.out.println("A quantidade de gol(s) que o Japão fez no jogo ");
+        golD = input.nextInt();
+        while (golD < 0) {
+            System.out.println("ERRO! O número de gol(s) deve ser maior ou igual a 0");
+            System.out.println("Por favor novamente a quantidade de gol(s) que o Brasil fez no jogo ");
+            golA = input.nextInt();
+        }
+        System.out.println("Por favor informe o placar do jogo França X Uruguai");
+        System.out.println("A quantidade de gol(s) que a França fez no jogo ");
+        golB = input.nextInt();
+        while (golB < 0) {
+            System.out.println("ERRO! O número de gol(s) deve ser maior ou igual a 0");
+            System.out.println("Por favor novamente a quantidade de gol(s) que a França fez no jogo ");
+            golB = input.nextInt();
+        }
+        System.out.println("A quantidade de gol(s) que o Uruguai fez no jogo ");
+        golC = input.nextInt();
+        while (golC < 0) {
+            System.out.println("ERRO! O número de gol(s) deve ser maior ou igual a 0");
+            System.out.println("Por favor novamente a quantidade de gol(s) que o Uruguai fez no jogo ");
+            golC = input.nextInt();
+        }
+
+        resultadoFinal(golA, golD, golB, golC);
+
+
+    }
+
+    public static int resultado1(int golA, int golD) {
+        int result = 0;
+        if (golA > golD) {
+            result = 1;
+        } else if (golA < golD) {
+            result = 2;
+        }
+        return result;
+    }
+
+    public static int resultado2(int golB, int golC) {
+        int result = 0;
+        if (golB > golC) {
+            result = 1;
+        } else if (golB < golC) {
+            result = 2;
+        }
+        return result;
+    }
+
+    public static void resultadoFinal(int golA, int golD, int golB, int golC) {
+        if (((resultado1(golA, golD)) == 1 && (resultado2(golB, golC)) == 1)) {
+            System.out.println("Os times que irão disputar a final são Brasil e França");
+            System.out.println("Os times que irão disputar o terceiro lugar são Japão e Uruguai");
+        } else if (((resultado1(golA, golD)) == 1 && (resultado2(golB, golC)) == 2)) {
+            System.out.println("Os times que irão disputar a final são Brasil e Uruguai");
+            System.out.println("Os times que irão disputar a final são Japão e França");
+        } else if (((resultado1(golA, golD)) == 2 && (resultado2(golB, golC)) == 1)) {
+            System.out.println("Os times que irão disputar a final são Japão e França");
+            System.out.println("Os times que irão disputar a final são Brasil e Uruguai");
+        } else if (((resultado1(golA, golD)) == 2 && (resultado2(golB, golC)) == 2)) {
+            System.out.println("Os times que irão disputar a final são Japão e Uruguai");
+            System.out.println("Os times que irão disputar a final são Brasil e França");
+        }
+    }
+}

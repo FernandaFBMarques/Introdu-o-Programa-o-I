@@ -1,0 +1,54 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        int identificationCode;
+        double quantity;
+
+        System.out.println("Please report the indentication code of the product");
+        System.out.print("Indentification code: ");
+        identificationCode = input.nextInt();
+        System.out.println("Please report the quantity of the product");
+        System.out.print("Quantity: ");
+        quantity = input.nextDouble();
+
+        double unitPrice;
+        double totalCost;
+
+        if(identificationCode <= 10){
+           unitPrice = 9.50;
+
+        }else if(identificationCode <= 20){
+          unitPrice = 13.25;
+
+        }else if(identificationCode <= 30){
+           unitPrice = 24.10;
+
+        }else if(identificationCode <= 40){
+           unitPrice = 37.75;
+        }else{
+            unitPrice = 0;
+        }
+        totalCost = unitPrice * quantity;
+        System.out.println("The total cost of your purchase is R$" + totalCost);
+
+        double discount;
+        double discountInReais;
+        double finalCost;
+
+        if(totalCost <= 1500){
+            discount = 0.025;
+        }else if(totalCost <= 3000){
+            discount = 0.05;
+        }else{
+            discount = 0.1;
+        }
+
+        discountInReais = totalCost * discount;
+        System.out.println("The discount of your purchase is R$" + discountInReais);
+        finalCost = totalCost - discountInReais;
+        System.out.println("The final cost of your purchase is R$" + finalCost);
+    }
+}

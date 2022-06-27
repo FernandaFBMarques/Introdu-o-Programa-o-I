@@ -1,0 +1,36 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        double hoursExtra;
+        double hoursMissed;
+
+        System.out.println("Please report the number of extra hours the employee worked");
+        System.out.print("Extra hours worked: ");
+        hoursExtra = input.nextDouble();
+        System.out.println("Please report the number of hours the employee missed");
+        System.out.print("Hours missed: ");
+        hoursMissed = input.nextDouble();
+
+        double totalHours = hoursExtra - (2.0/3.0 * hoursMissed);
+
+        if(totalHours > 40.0){
+            System.out.println("The employee will receive R$200 of christma's gratification");
+
+        }else if (30.0 < totalHours && totalHours <= 40.0){
+            System.out.println("The employee will receive R$175 of christma's gratification");
+
+        }else if (20.0 < totalHours && totalHours <= 30.0){
+            System.out.println("The employee will receive R$150 of christma's gratification");
+
+        }else if (10.0 < totalHours && totalHours <= 20.0){
+            System.out.println("The employee will receive R$125 of christma's gratification");
+
+        }else if (totalHours <= 10.0){
+            System.out.println("The employee will receive R$100 of christma's gratification");
+
+        }
+    }
+}

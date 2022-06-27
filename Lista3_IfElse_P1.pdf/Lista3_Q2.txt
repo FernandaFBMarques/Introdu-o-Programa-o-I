@@ -1,0 +1,29 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        double yc;
+
+        System.out.println("Please report the yield coefficient of the student");
+        System.out.print("yield coefficient: ");
+        yc = input.nextDouble();
+
+        String recommendation;
+
+        if(yc >= 9){
+            recommendation = "highly recommended";
+
+        }else if(yc >= 8){
+            recommendation = "strongly recommended";
+
+        }else if(yc >= 7){
+            recommendation = "recommended";
+            
+        }else{
+            recommendation = "not recommended";
+        }
+        System.out.println("This student is " + recommendation);
+    }
+}

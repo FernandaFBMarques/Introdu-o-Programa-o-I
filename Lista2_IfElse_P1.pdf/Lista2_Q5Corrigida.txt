@@ -1,0 +1,35 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner (System.in);
+
+        double currentlyWage;
+
+        System.out.println("Please report the currently wage of the player");
+        System.out.print("Currently wage: ");
+        currentlyWage = input.nextDouble();
+
+        double newWage;
+        double raise;
+
+        if(currentlyWage <= 1900.0){
+            raise = currentlyWage * 0.2;
+            newWage = raise + currentlyWage;
+
+        }else if(currentlyWage <= 3300.0){
+            raise = currentlyWage * 0.15;
+            newWage = raise + currentlyWage;
+
+        }else if(currentlyWage <= 5800.0){
+            raise = currentlyWage * 0.1;
+            newWage = raise + currentlyWage;
+
+        }else{
+            raise = currentlyWage * 0.5;
+            newWage = raise + currentlyWage;
+            
+        }
+        System.out.println("The player will receive a raise of R$" + raise + " and will now receive R$" + newWage);
+    }
+}

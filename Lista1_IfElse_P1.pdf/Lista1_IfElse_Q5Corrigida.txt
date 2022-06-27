@@ -1,0 +1,29 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        double a;
+        double b;
+        double x;
+
+        System.out.println("Report the value of A");
+        System.out.print("A: ");
+        a = input.nextDouble();
+        System.out.println("Report the value of B");
+        System.out.print("B: ");
+        b = input.nextDouble();
+
+
+
+        if(a != 0){
+            x = - b / a;
+            System.out.println("The value of X is " + x);
+        }else{
+            System.out.println("ERRO:It is not possible to caculate the X's value");
+            System.out.println("The value of A must be different than zero");
+
+        }
+    }
+}

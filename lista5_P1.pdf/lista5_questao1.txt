@@ -1,0 +1,40 @@
+package com.company;
+import java.util.Scanner;
+
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner (System.in);
+
+        double reais;
+        double usd;
+        double libra;
+        double euro;
+        double usdCot;
+        double libraCot;
+        double euroCot;
+
+        System.out.println("Informe o valor em reais que será utilizado na viagem");
+        System.out.print("R$: ");
+        reais = input.nextDouble();
+        System.out.println("Informe o valor atual da cotação do dólar");
+        System.out.print("Cotação atual dólar: ");
+        usdCot = input.nextDouble();
+        System.out.println("Informe o valor atual da cotação da libra");
+        System.out.print("Cotação atual libra: ");
+        libraCot = input.nextDouble();
+        System.out.println("Informe o valor atual da cotação do euro");
+        System.out.print("Cotação atual euro: ");
+        euroCot = input.nextDouble();
+
+        usd = reais / usdCot;
+        libra = reais / libraCot;
+        euro = reais / euroCot;
+
+        System.out.println("O valor que será utilizado na viagem em dólares é igual a US$" + usd);
+        System.out.println("O valor que será utilizado na viagem em libras é igual a £" + libra);
+        System.out.println("O valor que será utilizado na viagem em euros é igual a €" + euro);
+
+
+
+    }
+}

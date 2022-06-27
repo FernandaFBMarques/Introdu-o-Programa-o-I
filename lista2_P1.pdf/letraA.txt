@@ -1,0 +1,31 @@
+package com.company;
+import java.util.Scanner;
+class Main {
+    public static void main(String args[]) {
+        Scanner input = new Scanner (System. in);
+        double intermediateExam;
+        double practicalExam;
+        double finalExam;
+        double finalGrade;
+        double intermediateExamGrade;
+        double practicalExamGrade;
+        double finalExamGrade;
+        System.out.println ("informe a nota do Exame Intermediário");
+        intermediateExam = input.nextDouble();
+        intermediateExamGrade = intermediateExam * 30/100;
+        System.out.println ("A nota do exame intermediário com peso foi " + intermediateExamGrade);
+        System.out.println ("informe a nota do Exame Prático");
+        practicalExam = input.nextDouble();
+        practicalExamGrade = practicalExam * 20/100;
+        System.out.println ("A nota do exame prático com peso foi " + practicalExamGrade);
+        System.out.println ("informe a nota do Exame Final");
+        finalExam = input.nextDouble();
+        finalExamGrade = finalExam * 50/100;
+        System.out.println ("A nota do exame final com peso foi " + finalExamGrade);
+        finalGrade = intermediateExamGrade + practicalExamGrade + finalExamGrade;
+        System.out.println ("A nota final foi "+ finalGrade);
+
+
+
+    }
+}

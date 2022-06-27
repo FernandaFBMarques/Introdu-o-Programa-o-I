@@ -1,0 +1,36 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        int cityResidents = 300;
+        int age;
+        int count = 1;
+        int countCanVote = 0;
+        int countCanNotVote = 0;
+
+        while(count <= cityResidents){
+            System.out.println("Please report the age of the city resident " + count);
+            System.out.print("Age: ");
+            age = input.nextInt();
+            while(age < 1 || age > 120){
+                System.out.println("ERRO! The age must be between 1 and 120!");
+                System.out.print("Please report the age of the city resident again: ");
+                age = input.nextInt();
+            }if(age >= 18 && age <= 90){
+                System.out.println("This person has " + age + " years and CAN vote!");
+                countCanVote = countCanVote + 1;
+            }else{
+                System.out.println("This person has " + age + " years and can NOT vote!");
+                countCanNotVote = countCanNotVote + 1;
+            }
+            count = count + 1;
+        }
+        double percentageCanVote = countCanVote * (100/300);
+        double percentageCanNotVote = countCanNotVote * (100/300);
+
+        System.out.println("The total of city residents tha CAN vote is " + countCanVote + ", " + percentageCanVote + "%");
+        System.out.println("The total of city residents tha can NOT vote is " + countCanNotVote + ", " + percentageCanNotVote + "%");
+    }
+}

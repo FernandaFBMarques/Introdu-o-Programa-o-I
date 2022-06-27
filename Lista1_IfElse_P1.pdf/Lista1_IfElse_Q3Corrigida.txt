@@ -1,0 +1,29 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main (String args[]){
+        Scanner input = new Scanner(System.in);
+
+        int number1;
+        int number2;
+        int restNumbers;
+
+        System.out.println("Report a full number");
+        System.out.print("First number: ");
+        number1 = input.nextInt();
+        System.out.println("Report another full number");
+        System.out.print("Second number: ");
+        number2 = input.nextInt();
+
+        System.out.println("Now we will discover if number 1 is divisible by number 2");
+
+        restNumbers = number1 % number2;
+
+        if(restNumbers==0){
+            System.out.println("The number " + number1 + " is divisible by number " + number2);
+        }
+        else{
+            System.out.println("The number " + number1 + " is not divisible by number " + number2);
+        }
+    }
+}

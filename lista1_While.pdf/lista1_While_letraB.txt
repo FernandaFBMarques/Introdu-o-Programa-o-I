@@ -1,0 +1,44 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        double grade1 = 0;
+        double grade2 = 0;
+        double finalGrade;
+        int students = 0;
+        
+        while(students != 30){
+            students = students + 1;
+            System.out.println("Please report the first grade: ");
+            System.out.print("Grade 1: ");
+            grade1 = input.nextDouble();
+            System.out.println("Please report the second grade: ");
+            System.out.print("Grade 2: ");
+            grade2 = input.nextDouble();
+            finalGrade = (grade1 + grade2) / 2.0;
+
+            while(grade1 > 10 || grade1 < 0 || grade2 > 10 || grade2 < 0){
+                System.out.println("These grades are INVALID!");
+                System.out.println("Please report another grade");
+                System.out.print("Grade 1: ");
+                grade1 = input.nextDouble();
+                System.out.print("Grade 2: ");
+                grade2 = input.nextDouble();
+                finalGrade = (grade1 + grade2) / 2.0;
+            }
+            if(finalGrade >= 7){
+                System.out.println("The student is APPROVED! His average is " + finalGrade);
+
+            }else if(finalGrade < 7 && finalGrade >= 3){
+                System.out.println("The student needs to take another test. His average is " + finalGrade);
+
+            }else{
+                System.out.println("The student is NOT approved! His average is " + finalGrade);
+
+            }
+            System.out.println("This is student number " + students);
+        }
+    }
+}

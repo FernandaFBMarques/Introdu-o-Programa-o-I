@@ -1,0 +1,27 @@
+package com.company;
+import java.util.Scanner;
+class Main {
+    public static void main(String args[]) {
+        Scanner input = new Scanner (System. in);
+        double cheeseSlice = 0.1;
+        double hamSlice = 0.05;
+        double hamburguer = 0.1;
+        double totalWeightOfCheese;
+        double totalWeightOfHam;
+        double totalWeightOfHamburguer;
+        double sandwich;
+        double amountOfSandwich;
+        double totalWeightOfIngredients;
+        System.out.println ("Informe a quantidade de sanduíches desejados");
+        amountOfSandwich = input.nextDouble();
+        totalWeightOfCheese = amountOfSandwich * cheeseSlice;
+        System.out.println ("A quantidade de queijo vai ser de " + totalWeightOfCheese + "kg");
+        totalWeightOfHam = amountOfSandwich * hamSlice;
+        System.out.println ("A quantidade de presunto vai ser de " + totalWeightOfHam + "kg");
+        totalWeightOfHamburguer = amountOfSandwich * hamburguer;
+        System.out.println ("A quantidade de hambúrguer vai ser de " + totalWeightOfHamburguer + "kg");
+        totalWeightOfIngredients = totalWeightOfCheese + totalWeightOfHam + totalWeightOfHamburguer;
+        System.out.println ("A quantidade total dos ingredientes vai ser de " + totalWeightOfIngredients + "kg");
+
+    }
+}

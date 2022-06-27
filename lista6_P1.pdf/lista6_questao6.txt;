@@ -1,0 +1,25 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main (String args[]){
+        Scanner input = new Scanner (System.in);
+
+        double ano;
+        double mes;
+        double dias;
+        double diasRespFinal;
+        double restoDias;
+
+        System.out.println("Informe o valor de dias");
+        System.out.print("Dias: ");
+        dias = input.nextInt();
+
+        ano = Math.floor(dias / 365);
+        restoDias = dias % 365;
+        mes = Math.floor(restoDias / 30);
+        diasRespFinal = restoDias - (mes * 30);
+
+        System.out.println( dias + "dias correspondem a " + ano + "ano(s)," + mes + "mes(es)," + diasRespFinal + "dia(s)");
+
+    }
+}

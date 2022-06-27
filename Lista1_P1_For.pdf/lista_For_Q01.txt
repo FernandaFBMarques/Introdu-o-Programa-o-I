@@ -1,0 +1,14 @@
+package com.company;
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        for(cont = 1; cont<= 500; cont = cont + 1){
+            if (cont % 9 == 4){
+                System.out.println(cont);
+            }
+            
+        }
+    }
+}
